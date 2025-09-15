@@ -2,18 +2,18 @@ import { test, expect } from '@playwright/test';
 import { SignupPage } from '../../pages/SignupPage.js';
 
 test.describe('Signup Tests', () => {
-    test('Signup with valid credentials', async ({ page }) => {
+    test('Valid credentials', async ({ page }) => {
         const signupPage = new SignupPage(page);
         await signupPage.expectSignupForm();
         await signupPage.navigate();
-        await signupPage.fillupSignupForm('Rahat Test', 'testRahat123@test.test');
+        await signupPage.fillupSignupForm('Rahat Test', 'testRahat1234@test.test');
         await signupPage.submitSignupForm();
-
         // Add assertions here to verify successful signup
         await expect(page.getByText('ENTER ACCOUNT INFORMATION')).toBeVisible();
+        await signupPage.createAccount();
     });
 
-    test('Signup with invalid email', async ({ page }) => {
+    test('Invalid email', async ({ page }) => {
         const signupPage = new SignupPage(page);
         await signupPage.expectSignupForm();
         await signupPage.navigate();
