@@ -1,3 +1,4 @@
+import { expect } from "@playwright/test";
 
 export class LoginPage {
     constructor(page) {
@@ -19,5 +20,9 @@ export class LoginPage {
 
     async submitLoginForm() {
         await this.page.getByRole('button', { name: 'Login' }).click();
+    }
+
+    async loginSuccessOrFail(name) {
+        await expect(this.page.getByText(`Logged in as ${name}`)).toBeVisible();
     }
 }
