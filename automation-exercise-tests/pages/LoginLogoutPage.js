@@ -1,12 +1,12 @@
 import { expect } from "@playwright/test";
 
-export class LoginPage {
+export class LoginLogoutPage {
     constructor(page) {
         this.page = page;
     }
 
     async navigate() {
-        await this.page.goto('https://www.automationexercise.com/login');
+        await this.page.goto('https://automationexercise.com/login');
     }
 
     async expectLoginForm() {
@@ -23,6 +23,14 @@ export class LoginPage {
     }
 
     async loginSuccessOrFail(name) {
-        await expect(this.page.getByText(`Logged in as ${name}`)).toBeVisible();
+        await expect(this.page.getByRole('listitem').filter({ hasText: 'Logged in as Rahat Test' })).toBeVisible({ timeout: 2000 });
+    }
+    
+    async logout() {
+        await this.page.getByRole('listitem').filter({ hasText: 'Logout' }).click();
+    }
+
+    async logoutSuccessOrNot() {
+        await expect(this.page.getByRole('heading', { name: 'Login to your account' })).toBeVisible( { timeout: 2000 } );
     }
 }
