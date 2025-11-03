@@ -18,6 +18,10 @@ export class SignupPage {
         await this.page.locator('input[data-qa="signup-email"]').fill(email);
     }
 
+    async checkIfEmailExists() {
+        return await this.page.getByText('Email Address already exist!').isVisible();
+    }
+
     async submitSignupForm() {
         await this.page.getByRole('button', { name: 'Signup' }).click();
     }

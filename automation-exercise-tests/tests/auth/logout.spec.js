@@ -1,7 +1,7 @@
 import { LoginLogoutPage } from "../../pages/LoginLogoutPage";
 import { test } from '@playwright/test';
 
-test.describe('Logout Test', () => {
+test.describe('Test Case 4', () => {
     test('Login and Logout', async ({ page }) => {
         const loginLogoutPage = new LoginLogoutPage(page);
         
