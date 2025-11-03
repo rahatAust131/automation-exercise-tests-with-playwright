@@ -9,6 +9,6 @@ export class CartPage {
         await this.page.goto('https://automationexercise.com/view_cart');
     }
     async expectCartPage() {
-        await this.page.locator('.cart_info').isVisible();
+        await expect(this.page.getByText('Shopping Cart')).toBeVisible();
     }
 }
