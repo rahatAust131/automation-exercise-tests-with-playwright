@@ -6,7 +6,7 @@ test.describe('Signup Tests', () => {
         const signupPage = new SignupPage(page);
         await signupPage.expectSignupForm();
         await signupPage.navigate();
-        await signupPage.fillupSignupForm('Rahat Test', 'testRahat1@test.test');
+        await signupPage.fillupSignupForm('Rahat Test', 'testRahat2024@test.test');
         await signupPage.submitSignupForm();
         // Add assertions here to verify successful signup
         await expect(page.getByText('ENTER ACCOUNT INFORMATION')).toBeVisible();

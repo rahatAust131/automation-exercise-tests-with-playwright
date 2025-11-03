@@ -1,8 +1,8 @@
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-    testDir: './tests',
-    reporter: [
+  testDir: './tests',
+  reporter: [
     ['list'],
     ['html', { open: 'never' }]
   ],
@@ -12,5 +12,5 @@ export default defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'retain-on-failure'
-  },
+  }
 });
